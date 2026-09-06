@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bethel Muzuwa — Digital Marketing & Growth Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14213D;
+    --sand:#F2E8D5;
+    --amber:#E8A33D;
+    --teal:#2A9D8F;
+    --charcoal:#1B1B1E;
+    --off-white:#FAF7F0;
+    --ink-70: rgba(20,33,61,0.7);
+    --amber-15: rgba(232,163,61,0.15);
+    --teal-15: rgba(42,157,143,0.15);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--charcoal);line-height:1.6;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:var(--off-white);border-bottom:1px solid rgba(27,27,30,0.1);}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:72px;}
+  .logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;letter-spacing:-0.01em;}
+  .navlinks{display:flex;gap:28px;font-size:0.82rem;}
+  .navlinks a{opacity:0.7;transition:opacity 0.2s;}
+  .navlinks a:hover{opacity:1;}
+
+  /* HERO */
+  .hero{background:var(--ink);color:var(--off-white);padding:90px 0 80px;position:relative;overflow:hidden;}
+  .hero .eyebrow{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:18px;}
+  .hero h1{font-size:3rem;line-height:1.05;margin-bottom:10px;}
+  .hero .role{font-size:1.15rem;color:var(--teal);font-family:'Fraunces',serif;font-style:italic;margin-bottom:22px;}
+  .hero p.pitch{max-width:600px;color:rgba(250,247,240,0.8);font-size:1.02rem;margin-bottom:26px;}
+  .service-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:38px;}
+  .service-tags span{font-size:0.72rem;letter-spacing:0.04em;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(250,247,240,0.25);border-radius:20px;color:rgba(250,247,240,0.85);}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{display:inline-block;padding:14px 26px;border-radius:2px;font-size:0.85rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.03em;transition:transform 0.2s;}
+  .btn-primary{background:var(--amber);color:var(--ink);}
+  .btn-outline{border:1px solid rgba(250,247,240,0.4);color:var(--off-white);}
+  .btn:hover{transform:translateY(-2px);}
+
+  /* RESULTS */
+  .results-section{padding:70px 0;background:var(--sand);}
+  .results-section .section-head h2{font-size:2rem;}
+  .results-section .brief-label{color:var(--ink);opacity:0.6;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;}
+  .stat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(27,27,30,0.12);border:1px solid rgba(27,27,30,0.12);margin:32px 0 20px;}
+  .stat-cell{background:var(--off-white);padding:28px 18px;text-align:center;}
+  .stat-cell .val{font-family:'Fraunces',serif;font-weight:700;font-size:1.7rem;color:var(--teal);display:block;margin-bottom:8px;}
+  .stat-cell .lbl{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-70);}
+  .results-note{font-size:0.9rem;color:var(--ink-70);font-style:italic;}
+
+  /* section head shared */
+  .section-head{margin-bottom:44px;}
+  .section-head .brief-label{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+  .section-head h2{font-size:2rem;}
+
+  /* VALUE PROPS / SERVICE-STYLE GRID (reused for section 3 and services and why-work) */
+  .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(27,27,30,0.12);border:1px solid rgba(27,27,30,0.12);}
+  .service{background:var(--off-white);padding:32px 26px;transition:background 0.25s;}
+  .service:hover{background:var(--amber-15);}
+  .service .num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--amber);margin-bottom:18px;display:block;}
+  .service h3{font-size:1.05rem;margin-bottom:10px;font-weight:600;}
+  .service p{font-size:0.85rem;color:var(--ink-70);}
+  .values-section{padding:90px 0;}
+  .services-section{padding:90px 0;background:var(--sand);}
+  .why-section{padding:90px 0;}
+  .why-section .service-grid{grid-template-columns:repeat(5,1fr);}
+
+  /* CASE STUDIES */
+  .cases{background:var(--ink);color:var(--off-white);padding:90px 0;}
+  .cases .section-head .brief-label{color:var(--amber);}
+  .case-card{background:rgba(250,247,240,0.04);border:1px solid rgba(250,247,240,0.12);border-radius:4px;padding:40px;margin-bottom:28px;}
+  .case-head{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(250,247,240,0.12);}
+  .case-head h3{font-size:1.5rem;color:var(--off-white);margin-bottom:4px;}
+  .case-head .client-type{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);}
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:24px;}
+  .case-block .brief-label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,247,240,0.5);margin-bottom:10px;}
+  .case-block p, .case-block li{font-size:0.87rem;color:rgba(250,247,240,0.85);}
+  .case-block ul{padding-left:18px;margin-top:4px;}
+  .case-results{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;}
+  .case-results span{font-family:'JetBrains Mono',monospace;font-size:0.78rem;background:rgba(42,157,143,0.15);color:var(--teal);padding:8px 14px;border-radius:20px;}
+  .case-takeaway{border-top:1px dashed rgba(250,247,240,0.2);padding-top:18px;font-size:0.9rem;color:rgba(250,247,240,0.85);font-style:italic;}
+  .placeholder{color:var(--teal);font-style:italic;}
+  .post-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px;}
+  .post-thumb{position:relative;border-radius:3px;overflow:hidden;border:1px solid rgba(250,247,240,0.15);}
+  .post-thumb img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;}
+  .post-tag{position:absolute;bottom:0;left:0;right:0;background:rgba(20,33,61,0.85);color:var(--amber);font-size:0.62rem;letter-spacing:0.05em;text-transform:uppercase;padding:6px 8px;}
+
+  /* OTHER WORK */
+  .additional{padding:90px 0;}
+  .additional-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+  .add-card{border:1px solid rgba(27,27,30,0.12);border-radius:4px;overflow:hidden;background:var(--off-white);}
+  .add-card-wide{grid-column:1 / -1;}
+  .add-media{width:100%;aspect-ratio:4/3;background:var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .add-media img{width:100%;height:100%;object-fit:cover;}
+  .add-body{padding:26px 28px;}
+  .add-body .client-type{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);}
+  .add-body h3{font-size:1.15rem;margin:8px 0 10px;}
+  .add-body p{font-size:0.87rem;color:var(--ink-70);}
+  .video-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 28px 28px;}
+  .video-gallery video{width:100%;border-radius:3px;background:#000;aspect-ratio:9/16;object-fit:cover;}
+
+  /* PROCESS */
+  .process-section{padding:90px 0;background:var(--ink);color:var(--off-white);}
+  .process-section .section-head .brief-label{color:var(--amber);}
+  .process-list{max-width:560px;}
+  .process-step{padding:22px 0;border-bottom:1px solid rgba(250,247,240,0.12);}
+  .process-step .num{font-family:'JetBrains Mono',monospace;color:var(--amber);font-size:0.8rem;letter-spacing:0.1em;display:block;margin-bottom:6px;}
+  .process-step h3{font-size:1.15rem;margin-bottom:6px;}
+  .process-step p{font-size:0.88rem;color:rgba(250,247,240,0.75);}
+  .process-arrow{text-align:center;color:var(--amber);font-size:1.1rem;padding:4px 0;}
+
+  /* ABOUT */
+  .about-section{padding:90px 0;}
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start;}
+  .about-grid p{margin-bottom:16px;font-size:0.95rem;color:var(--ink-70);}
+  .flow-line{font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:var(--teal);letter-spacing:0.02em;padding:16px 0;border-top:1px dashed rgba(27,27,30,0.2);border-bottom:1px dashed rgba(27,27,30,0.2);margin:20px 0;}
+  .cred-list{display:flex;flex-direction:column;}
+  .cred-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(27,27,30,0.12);}
+  .cred-row .c-name{font-family:'Fraunces',serif;font-size:1rem;font-weight:500;}
+  .cred-row .c-issuer{font-size:0.8rem;color:var(--ink-70);}
+  .cred-row .c-status{font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--teal);}
+  .about-side .brief-label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+
+  /* CONTACT / FINAL CTA */
+  .contact{background:var(--amber);padding:80px 0;text-align:left;}
+  .contact h2{font-size:2.2rem;color:var(--ink);margin-bottom:16px;max-width:600px;}
+  .contact p{color:var(--ink);opacity:0.85;max-width:500px;margin-bottom:28px;}
+  .cta-btn{display:inline-block;background:var(--ink);color:var(--off-white);padding:14px 28px;border-radius:2px;font-size:0.85rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;transition:transform 0.2s;margin-bottom:36px;}
+  .cta-btn:hover{transform:translateY(-2px);}
+  .contact-details{display:flex;flex-direction:column;gap:10px;border-top:1px dashed rgba(20,33,61,0.3);padding-top:26px;max-width:500px;}
+  .contact-details a{color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:0.88rem;text-decoration:underline;}
+  footer{padding:28px 0;font-size:0.78rem;color:var(--ink-70);}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media (max-width:820px){
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .why-section .service-grid{grid-template-columns:repeat(2,1fr);}
+    .case-grid{grid-template-columns:repeat(2,1fr);}
+    .post-gallery{grid-template-columns:repeat(2,1fr);}
+    .video-gallery{grid-template-columns:1fr;padding:0 20px 20px;}
+    .additional-grid{grid-template-columns:1fr;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+    .about-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:2.1rem;}
+    .navlinks{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Bethel Muzuwa</div>
+    <div class="navlinks mono">
+      <a href="#results">Results</a>
+      <a href="#campaigns">Campaigns</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow mono">Digital Marketing</div>
+    <h1>BETHEL MUZUWA</h1>
+    <div class="role">Digital Marketing & Growth Strategist</div>
+    <p class="pitch">I help businesses attract attention, build engaged audiences, and turn digital marketing into measurable growth.</p>
+    <div class="service-tags mono">
+      <span>Social Media</span><span>Content Marketing</span><span>SEO</span><span>Lead Generation</span><span>Paid Ads</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#campaigns" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Let's Work Together</a>
+    </div>
+  </div>
+</header>
+
+<!-- 2. RESULTS FIRST -->
+<section class="results-section" id="results">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="brief-label mono">Proof, Not Promises</div>
+      <h2>Results That Speak</h2>
+    </div>
+    <div class="stat-grid reveal">
+      <div class="stat-cell"><span class="val">+1,447%</span><span class="lbl mono">Views Growth</span></div>
+      <div class="stat-cell"><span class="val">+1.1K%</span><span class="lbl mono">Interaction Growth</span></div>
+      <div class="stat-cell"><span class="val">64</span><span class="lbl mono">New Followers</span></div>
+      <div class="stat-cell"><span class="val">3.6K+</span><span class="lbl mono">Top Content Views</span></div>
+      <div class="stat-cell"><span class="val">717</span><span class="lbl mono">Video Views</span></div>
+    </div>
+    <p class="results-note reveal">Don't just take my word for it. See the campaigns and results below.</p>
+  </div>
+</section>
+
+<!-- 3. WHAT I HELP BUSINESSES ACHIEVE -->
+<section class="values-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="brief-label mono">The Value I Bring</div>
+      <h2>From Visibility to Growth</h2>
+    </div>
+    <div class="service-grid reveal">
+      <div class="service">
+        <span class="num mono">01</span>
+        <h3>Build Visibility</h3>
+        <p>Increase brand awareness and reach the right audience through strategic content and social media.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">02</span>
+        <h3>Grow Engagement</h3>
+        <p>Create content that encourages people to interact, follow and remember your brand.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">03</span>
+        <h3>Generate Opportunities</h3>
+        <p>Use digital channels and conversion-focused strategies to turn attention into potential customers.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">04</span>
+        <h3>Improve Performance</h3>
+        <p>Track what works, identify opportunities and continuously improve campaigns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. FEATURED CASE STUDIES -->
+<section class="cases" id="campaigns">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="brief-label mono">Featured Campaigns</div>
+      <h2>Real Work, Real Results</h2>
+    </div>
+
+    <!-- Weproe Africa -->
+    <div class="case-card reveal">
+      <div class="case-head">
+        <div class="client-type mono">Digital Marketing Campaign</div>
+        <h3>Weproe Africa</h3>
+      </div>
+      <div class="case-grid">
+        <div class="case-block">
+          <div class="brief-label mono">Objective</div>
+          <p>Increase online visibility, audience engagement and brand awareness.</p>
+        </div>
+        <div class="case-block">
+          <div class="brief-label mono">Strategy</div>
+          <ul>
+            <li>Social media content strategy</li>
+            <li>Audience-focused content targeting young professionals and small business owners</li>
+            <li>Engagement optimisation</li>
+            <li>Performance tracking</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <div class="brief-label mono">Execution</div>
+          <ul>
+            <li>5 SEO-optimized blog posts on WordPress (ongoing series)</li>
+            <li>Facebook video advert campaign — <a href="https://www.facebook.com/share/r/1BVjaSo11p/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">watch the ad ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-results">
+        <span>717 Video Views</span>
+        <span>28 Video Interactions</span>
+      </div>
+      <div class="case-takeaway">The campaign successfully increased visibility and audience interaction through consistent, targeted digital content.</div>
+    </div>
+
+    <!-- Weproe Christian College -->
+    <div class="case-card reveal">
+      <div class="case-head">
+        <div class="client-type mono">Social Media & Content Marketing Campaign</div>
+        <h3>Weproe Christian College</h3>
+      </div>
+      <div class="case-grid">
+        <div class="case-block">
+          <div class="brief-label mono">Objective</div>
+          <p>Strengthen the institution's digital presence and reach prospective students and stakeholders.</p>
+        </div>
+        <div class="case-block">
+          <div class="brief-label mono">Strategy</div>
+          <ul>
+            <li>Content planning — monthly content calendar</li>
+            <li>Social media management</li>
+            <li>Educational/promotional content</li>
+            <li>Audience engagement</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <div class="brief-label mono">Execution</div>
+          <ul>
+            <li>Weekly "Motivational Monday" content series</li>
+            <li>Admissions and student-life posts (2027 admissions, chess club, cookery club)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-results">
+        <span>+1,447% Views Growth (28 Days)</span>
+        <span>+1.1K% Interaction Growth</span>
+        <span>64 New Follows</span>
+      </div>
+      <div class="post-gallery">
+        <div class="post-thumb"><img src="wcc-post-1.png" alt="Wisdom Wednesday post — Proverbs 4:7"><span class="post-tag mono">Wisdom Wednesday</span></div>
+        <div class="post-thumb"><img src="wcc-post-2.png" alt="Wisdom Wednesday post — 2027 admissions"><span class="post-tag mono">Wisdom Wednesday</span></div>
+        <div class="post-thumb"><img src="wcc-post-3.png" alt="Motivational Monday post — core values"><span class="post-tag mono">Motivational Monday</span></div>
+        <div class="post-thumb"><img src="wcc-post-4.jpg" alt="Sunday Reflection post — Proverbs 3:5-6"><span class="post-tag mono">Sunday Reflection</span></div>
+      </div>
+      <div class="case-takeaway" style="margin-top:20px;">A consistent content strategy can transform an organisation's online presence from simply being visible to actively engaging its audience.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADDITIONAL WORK -->
+<section class="additional">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="brief-label mono">Additional Work</div>
+      <h2>Other projects in the mix</h2>
+    </div>
+    <div class="additional-grid reveal">
+      <div class="add-card">
+        <div class="add-media"><img src="paradise-bar-logo.png" alt="The Paradise Bar logo design"></div>
+        <div class="add-body">
+          <div class="client-type mono">Brand Design · The Paradise Bar</div>
+          <h3>Logo design</h3>
+          <p>The Paradise Bar was just starting out with no visual identity, so I designed their logo — a playful, hand-drawn mark built around a clinking-mugs motif.</p>
+        </div>
+      </div>
+      <div class="add-card add-card-wide">
+        <div class="client-type mono" style="padding:26px 28px 0;">Self-Initiated Project · House of Temptation</div>
+        <div class="add-body" style="padding-top:10px;">
+          <h3>Concept video adverts</h3>
+          <p>House of Temptation is a fictional luxury perfume brand I created to practice video ad concepts and campaign storytelling outside of client work.</p>
+        </div>
+        <div class="video-gallery">
+          <video controls preload="metadata" src="hot-ad-1.mp4"></video>
+          <video controls preload="metadata" src="hot-ad-2.mp4"></video>
+          <video controls preload="metadata" src="hot-ad-3.mp4"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SERVICES -->
+<section class="services-section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="brief-label mono">Services</div>
+      <h2>How I Can Help</h2>
+    </div>
+    <div class="service-grid reveal">
+      <div class="service">
+        <span class="num mono">01</span>
+        <h3>Social Media Marketing</h3>
+        <p>Strategic content, audience growth, engagement and platform management.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">02</span>
+        <h3>Content Marketing</h3>
+        <p>Content designed to attract attention, educate audiences and drive action.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">03</span>
+        <h3>SEO</h3>
+        <p>Improve search visibility and help potential customers discover your business.</p>
+      </div>
+      <div class="service">
+        <span class="num mono">04</span>
+        <h3>Lead Generation</h3>
+        <p>Build digital campaigns and funnels designed to turn traffic and attention into qualified opportunities.</p>
+      </div>
+    </div>
+    <div class="service-grid reveal" style="margin-top:1px;grid-template-columns:repeat(1,1fr);max-width:100%;">
+      <div class="service">
+        <span class="num mono">05</span>
+        <h3>Paid Advertising</h3>
+        <p>Create and optimise targeted campaigns designed around measurable business objectives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PROCESS -->
+<section class="process-section" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="brief-label mono">How I Work</div>
+      <h2>My Growth Process</h2>
+    </div>
+    <div class="process-list reveal">
+      <div class="process-step">
+        <span class="num">01 — DISCOVER</span>
+        <h3>Understand your business, audience and goals.</h3>
+      </div>
+      <div class="process-arrow">↓</div>
+      <div class="process-step">
+        <span class="num">02 — STRATEGISE</span>
+        <h3>Develop a practical digital marketing strategy.</h3>
+      </div>
+      <div class="process-arrow">↓</div>
+      <div class="process-step">
+        <span class="num">03 — CREATE</span>
+        <h3>Develop content and campaigns built around your audience.</h3>
+      </div>
+      <div class="process-arrow">↓</div>
+      <div class="process-step">
+        <span class="num">04 — LAUNCH</span>
+        <h3>Deploy campaigns across the right digital channels.</h3>
+      </div>
+      <div class="process-arrow">↓</div>
+      <div class="process-step">
+        <span class="num">05 — MEASURE</span>
+        <h3>Track reach, engagement, traffic and conversions.</h3>
+      </div>
+      <div class="process-arrow">↓</div>
+      <div class="process-step" style="border-bottom:none;">
+        <span class="num">06 — OPTIMISE</span>
+        <h3>Use performance data to improve results.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. WHY WORK WITH ME -->
+<section class="why-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="brief-label mono">Why Work With Me</div>
+      <h2>More Than Just Posting Content</h2>
+    </div>
+    <div class="service-grid reveal">
+      <div class="service">
+        <h3>Results-focused</h3>
+        <p>I focus on measurable outcomes rather than vanity metrics alone.</p>
+      </div>
+      <div class="service">
+        <h3>Data-driven</h3>
+        <p>Campaign decisions should be informed by performance data.</p>
+      </div>
+      <div class="service">
+        <h3>Audience-focused</h3>
+        <p>Good marketing starts with understanding the people you're trying to reach.</p>
+      </div>
+      <div class="service">
+        <h3>Full-funnel thinking</h3>
+        <p>From awareness to engagement and conversion, I consider the complete customer journey.</p>
+      </div>
+      <div class="service">
+        <h3>Continuous improvement</h3>
+        <p>I use campaign performance to identify what should be improved next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. ABOUT ME -->
+<section class="about-section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="brief-label mono">About Me</div>
+      <h2>Turning Digital Opportunities Into Business Growth</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div>
+        <p>I'm a digital marketing professional focused on helping businesses build stronger online visibility, engage the right audiences and create measurable growth.</p>
+        <p>My experience spans social media marketing, content marketing, SEO, paid advertising and digital strategy.</p>
+        <p>I've worked on campaigns where the focus wasn't simply on publishing content, but on understanding the audience, executing a strategy and measuring the outcome.</p>
+        <p style="margin-bottom:0;">My approach is simple:</p>
+        <div class="flow-line">Understand → Strategise → Execute → Measure → Improve</div>
+      </div>
+      <div class="about-side">
+        <div class="brief-label mono">Credentials</div>
+        <div class="cred-list">
+          <div class="cred-row">
+            <div><div class="c-name">Digital Marketing Certificate</div><div class="c-issuer">Bindura University of Science Education</div></div>
+            <div class="c-status mono">Completed</div>
+          </div>
+          <div class="cred-row">
+            <div><div class="c-name">Artificial Intelligence Certificate</div><div class="c-issuer">Microsoft &amp; ITCILO</div></div>
+            <div class="c-status mono">Completed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. STRONGER CTA -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Ready to Grow Your Digital Presence?</h2>
+    <p>Whether you're launching a business, trying to reach a new audience or looking to improve your existing digital marketing, let's discuss what you're trying to achieve.</p>
+    <a class="cta-btn" href="mailto:betherom@outlook.com">Let's Talk About Your Growth →</a>
+    <div class="contact-details">
+      <div>Email: <a href="mailto:betherom@outlook.com">betherom@outlook.com</a></div>
+      <div>LinkedIn: <a href="https://www.linkedin.com/in/bethelmuzuwa" target="_blank" rel="noopener">linkedin.com/in/bethelmuzuwa</a></div>
+      <div>WhatsApp: <a href="https://wa.me/263715814633" target="_blank" rel="noopener">+263 71 581 4633</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Bethel Muzuwa. Built for real work, not just for show.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
